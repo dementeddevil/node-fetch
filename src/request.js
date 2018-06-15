@@ -200,7 +200,7 @@ export function getNodeRequestOptions(request) {
 
 	// TLS v1.2 only for HTTPS
 	var secureOptions = {};
-	if (parsedURL.substr(0, 6) === 'https:') {
+	if (parsedURL.protocol === 'https:') {
 		secureOptions.secureProtocol = 'TLSv1_2_method';
 	}
 

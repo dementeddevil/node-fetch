@@ -25,7 +25,7 @@ See Matt Andrews' [isomorphic-fetch](https://github.com/matthew-andrews/isomorph
 - Use native stream for body, on both request and response.
 - Decode content encoding (gzip/deflate) properly, convert `res.text()` output to UTF-8 optionally.
 - Useful extensions such as timeout, redirect limit, response size limit, [explicit errors][ERROR-HANDLING.md] for troubleshooting.
-
+- When using HTTPS, the library forces TLS v1.2 security protocol.
 
 ## Difference from client-side fetch
 
@@ -39,7 +39,7 @@ See Matt Andrews' [isomorphic-fetch](https://github.com/matthew-andrews/isomorph
 Stable release (`2.x`)
 
 ```sh
-$ npm install node-fetch --save
+$ npm install node-fetch-tls12 --save
 ```
 
 ## Usage
@@ -47,9 +47,9 @@ $ npm install node-fetch --save
 Note that documentation below is up-to-date with `2.x` releases, [see `1.x` readme](https://github.com/bitinn/node-fetch/blob/1.x/README.md), [changelog](https://github.com/bitinn/node-fetch/blob/1.x/CHANGELOG.md) and [2.x upgrade guide][UPGRADE-GUIDE.md] if you want to find out the difference.
 
 ```javascript
-import fetch from 'node-fetch';
+import fetch from 'node-fetch-tls12';
 // or
-// const fetch = require('node-fetch');
+// const fetch = require('node-fetch-tls12');
 
 // if you are using your own Promise library, set it through fetch.Promise. Eg.
 
