@@ -198,7 +198,13 @@ export function getNodeRequestOptions(request) {
 	// HTTP-network fetch step 4.2
 	// chunked encoding is handled by Node.js
 
-	return Object.assign({}, parsedURL, {
+	// TLS v1.2 only for HTTPS
+	var secureOptions = {};
+	if (parsedURL.substr(0, 6) === 'https:') {
+		secureOptions.secureProtocol = 'TLSv1_2_method';
+	}
+
+	return Object.assign({}, parsedURL, secureOptions, {
 		method: request.method,
 		headers: exportNodeCompatibleHeaders(headers),
 		agent: request.agent
